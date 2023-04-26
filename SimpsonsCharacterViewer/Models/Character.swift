@@ -21,10 +21,6 @@ struct Character: Decodable {
         case imageURL = "Icon"
     }
 
-    // MARK: - Viewable protocol
-
-//    var titleText: String { name }
-
     // MARK: - Initializer
 
     init(from decoder: Decoder) throws {

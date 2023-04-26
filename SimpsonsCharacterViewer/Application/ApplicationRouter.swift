@@ -9,14 +9,20 @@ import UIKit
 
 struct ApplicationRouter {
 
-    let navigationController: UINavigationController
-
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    let splitViewController: RootSplitViewController
+    
+    init(splitViewController: RootSplitViewController) {
+        self.splitViewController = splitViewController
+        let masterNavigatorController = CharacterListViewController(presenter: CharacterListPresenter())
+        let masterController = UINavigationController(rootViewController: masterNavigatorController)
+        splitViewController.masterViewController = masterController
+        let presenter = CharacterDetailPresenter()
+        splitViewController.detailViewController = CharacterDetailViewController(presenter: presenter)
     }
 
     func navigateToDetails(for character: Character) {
-        let detailVC = CharacterDetailViewController(character: character)
-        navigationController.pushViewController(detailVC, animated: true)
+        guard let detailVC = splitViewController.detailViewController else { return }
+        detailVC.presenter.character = character
+        splitViewController.showDetailViewController(detailVC, sender: nil)
     }
 }

@@ -32,7 +32,7 @@ final class CharacterListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.getCharacters()
-        observeCharacters()
+        setupObserver()
         configureSearchBar()
     }
 
@@ -47,7 +47,7 @@ final class CharacterListViewController: UITableViewController {
 
     // MARK: - Convenience methods
 
-    private func observeCharacters() {
+    private func setupObserver() {
         presenter.publisher
             .receive(on: RunLoop.main)
             .sink { _ in

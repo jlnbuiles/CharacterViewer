@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 final class CharacterDetailViewController: UIViewController {
 
     // MARK: - Properties
 
-    let character: Character
+    var presenter: CharacterDetailPresentable
+    private var cancellables: Set<AnyCancellable> = []
+
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -27,8 +30,8 @@ final class CharacterDetailViewController: UIViewController {
 
     // MARK: - Initializers
 
-    required init(character: Character) {
-        self.character = character
+    required init(presenter: CharacterDetailPresentable) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -41,18 +44,30 @@ final class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = character.name
-        configureViews()
+        setupObserver()
+    }
+
+    // I could have used `didSet` or explicitly called `configure(with...)`
+    // method when character was set, but decided to implement it this way
+    // to maintain the same pattern on both VCs.
+    private func setupObserver() {
+        presenter.publisher
+            .receive(on: RunLoop.main)
+            .compactMap { $0 }
+            .sink { character in
+                self.configure(with: character)
+            }.store(in: &cancellables)
     }
 
     // MARK: - UI configuration
     
-    private func configureViews() {
-        configureLabel()
-        configureImageView()
+    private func configure(with character: Character) {
+        title = character.name
+        configureLabel(with: character)
+        configureImageView(with: character)
     }
 
-    private func configureLabel() {
+    private func configureLabel(with character: Character) {
         descriptionLabel.text = character.description
         view.addSubview(descriptionLabel)
 
@@ -64,7 +79,7 @@ final class CharacterDetailViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
     }
 
-    private func configureImageView() {
+    private func configureImageView(with character: Character) {
         view.addSubview(imageView)
         imageView.frame = CGRect(x: 200.0, y: 150.0, width: 300.0, height: 200.0)
 
@@ -76,6 +91,6 @@ final class CharacterDetailViewController: UIViewController {
         ])
 
         imageView.fetchImage(from: character.imageURL,
-                             placeholder: UIImage(named: "mystery-character"))
+                             placeholder: UIImage(imgName: .mysteryMan))
     }
 }

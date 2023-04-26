@@ -1,5 +1,5 @@
 //
-//  DIContainer.swift
+//  DependencyContainer.swift
 //  SimpsonsCharacterViewer
 //
 //  Created by Julian Builes on 4/25/23.
@@ -39,10 +39,9 @@ final class DependencyContainer: DependencyInjectionProtocol {
     }
 
     private func configureContainer() {
-        let rootNC = UINavigationController(rootViewController: CharacterListViewController(presenter: CharacterListPresenter()))
-        register(UINavigationController.self, service: rootNC)
-
-        let router = ApplicationRouter(navigationController: rootNC)
+        let splitViewController = RootSplitViewController(style: .doubleColumn)
+        register(RootSplitViewController.self, service: splitViewController)
+        let router = ApplicationRouter(splitViewController: splitViewController)
         register(ApplicationRouter.self, service: router)
     }
 }

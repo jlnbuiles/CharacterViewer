@@ -10,28 +10,16 @@ import os
 
 struct HTTPClient {
 
-    private func baseGETRequest() -> URLRequest? {
-
-        guard let url = URLRouter.baseURL else { return nil }
-
-        // temp: maybe pass these as arguments and find a more structured way to represent them
-        let queryParams: [URLQueryItem] = [
-            .init(name: "q", value: "simpsons+characters"),
-            .init(name: "format", value: "json")
-        ]
-
-        var request = URLRequest(url: url.appending(queryItems: queryParams))
-
+    private func GETRequest(with url: URL) -> URLRequest? {
+        var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-
         return request
     }
 
     func getList() async -> Data? {
-
-        guard let request = baseGETRequest() else { return nil }
-
+        guard let url = URLRouter.characterList,
+              let request = GETRequest(with: url) else { return nil }
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
             return data

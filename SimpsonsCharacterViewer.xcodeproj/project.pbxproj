@@ -12,7 +12,7 @@
 		2925174629F763D0005FFCEC /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925174529F763D0005FFCEC /* CharacterListViewController.swift */; };
 		2925174B29F763D2005FFCEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2925174A29F763D2005FFCEC /* Assets.xcassets */; };
 		2925174E29F763D2005FFCEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2925174C29F763D2005FFCEC /* LaunchScreen.storyboard */; };
-		2925175629F76434005FFCEC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925175529F76434005FFCEC /* DetailViewController.swift */; };
+		2925175629F76434005FFCEC /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925175529F76434005FFCEC /* CharacterDetailViewController.swift */; };
 		2925175C29F768C0005FFCEC /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925175B29F768C0005FFCEC /* CharacterListInteractor.swift */; };
 		2925175E29F76918005FFCEC /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925175D29F76918005FFCEC /* HTTPClient.swift */; };
 		2925176029F769D7005FFCEC /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925175F29F769D7005FFCEC /* Character.swift */; };
@@ -22,6 +22,11 @@
 		2925176C29F79DF1005FFCEC /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925176B29F79DF1005FFCEC /* SearchResultsTableViewController.swift */; };
 		2925177029F82AF8005FFCEC /* ApplicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925176F29F82AF8005FFCEC /* ApplicationRouter.swift */; };
 		2925177329F83275005FFCEC /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925177229F83275005FFCEC /* DependencyContainer.swift */; };
+		29851B4E29F8AE06003E93ED /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29851B4D29F8AE06003E93ED /* AppEnvironment.swift */; };
+		29851B5329F8CA1D003E93ED /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29851B5229F8CA1D003E93ED /* UIImage+Extensions.swift */; };
+		29851B5529F8CA62003E93ED /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29851B5429F8CA62003E93ED /* ImageName.swift */; };
+		29851B5A29F8D6DF003E93ED /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29851B5929F8D6DF003E93ED /* RootSplitViewController.swift */; };
+		29851B5C29F8E37A003E93ED /* CharacterDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29851B5B29F8E37A003E93ED /* CharacterDetailPresenter.swift */; };
 		29C16B8029F89C2C00B5B705 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C16B7F29F89C2C00B5B705 /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +38,7 @@
 		2925174A29F763D2005FFCEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2925174D29F763D2005FFCEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2925174F29F763D2005FFCEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2925175529F76434005FFCEC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2925175529F76434005FFCEC /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		2925175B29F768C0005FFCEC /* CharacterListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor.swift; sourceTree = "<group>"; };
 		2925175D29F76918005FFCEC /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		2925175F29F769D7005FFCEC /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -43,6 +48,11 @@
 		2925176B29F79DF1005FFCEC /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		2925176F29F82AF8005FFCEC /* ApplicationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRouter.swift; sourceTree = "<group>"; };
 		2925177229F83275005FFCEC /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		29851B4D29F8AE06003E93ED /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		29851B5229F8CA1D003E93ED /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		29851B5429F8CA62003E93ED /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
+		29851B5929F8D6DF003E93ED /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
+		29851B5B29F8E37A003E93ED /* CharacterDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenter.swift; sourceTree = "<group>"; };
 		29C16B7F29F89C2C00B5B705 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +86,7 @@
 		2925174029F763D0005FFCEC /* SimpsonsCharacterViewer */ = {
 			isa = PBXGroup;
 			children = (
+				29851B5629F8CA67003E93ED /* Constants */,
 				2925175A29F765A7005FFCEC /* Application */,
 				2925177729F83CF4005FFCEC /* DependencyInjection */,
 				2925176629F7816C005FFCEC /* Networking */,
@@ -103,8 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				2925174129F763D0005FFCEC /* AppDelegate.swift */,
+				29851B4D29F8AE06003E93ED /* AppEnvironment.swift */,
 				2925174329F763D0005FFCEC /* SceneDelegate.swift */,
 				2925176F29F82AF8005FFCEC /* ApplicationRouter.swift */,
+				29851B5929F8D6DF003E93ED /* RootSplitViewController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -148,7 +161,8 @@
 		2925177129F82ED2005FFCEC /* CharacterDetail */ = {
 			isa = PBXGroup;
 			children = (
-				2925175529F76434005FFCEC /* DetailViewController.swift */,
+				2925175529F76434005FFCEC /* CharacterDetailViewController.swift */,
+				29851B5B29F8E37A003E93ED /* CharacterDetailPresenter.swift */,
 			);
 			path = CharacterDetail;
 			sourceTree = "<group>";
@@ -161,10 +175,19 @@
 			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
+		29851B5629F8CA67003E93ED /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				29851B5429F8CA62003E93ED /* ImageName.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		29C16B8129F89C3700B5B705 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				29C16B7F29F89C2C00B5B705 /* UIImageView+Extensions.swift */,
+				29851B5229F8CA1D003E93ED /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -240,12 +263,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2925177329F83275005FFCEC /* DependencyContainer.swift in Sources */,
+				29851B5C29F8E37A003E93ED /* CharacterDetailPresenter.swift in Sources */,
 				2925174629F763D0005FFCEC /* CharacterListViewController.swift in Sources */,
-				2925175629F76434005FFCEC /* DetailViewController.swift in Sources */,
+				2925175629F76434005FFCEC /* CharacterDetailViewController.swift in Sources */,
 				2925174229F763D0005FFCEC /* AppDelegate.swift in Sources */,
+				29851B4E29F8AE06003E93ED /* AppEnvironment.swift in Sources */,
+				29851B5529F8CA62003E93ED /* ImageName.swift in Sources */,
 				2925175E29F76918005FFCEC /* HTTPClient.swift in Sources */,
 				2925174429F763D0005FFCEC /* SceneDelegate.swift in Sources */,
 				2925175C29F768C0005FFCEC /* CharacterListInteractor.swift in Sources */,
+				29851B5A29F8D6DF003E93ED /* RootSplitViewController.swift in Sources */,
 				2925176329F77EE4005FFCEC /* DuckDuckGoResponseObjects.swift in Sources */,
 				29C16B8029F89C2C00B5B705 /* UIImageView+Extensions.swift in Sources */,
 				2925176C29F79DF1005FFCEC /* SearchResultsTableViewController.swift in Sources */,
@@ -253,6 +280,7 @@
 				2925176529F78074005FFCEC /* URLRouter.swift in Sources */,
 				2925176029F769D7005FFCEC /* Character.swift in Sources */,
 				2925177029F82AF8005FFCEC /* ApplicationRouter.swift in Sources */,
+				29851B5329F8CA1D003E93ED /* UIImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +298,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2925175029F763D2005FFCEC /* Debug */ = {
+		2925175029F763D2005FFCEC /* TheWire */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -325,12 +353,12 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = WIRE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = TheWire;
 		};
-		2925175129F763D2005FFCEC /* Release */ = {
+		2925175129F763D2005FFCEC /* Simpsons */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -378,13 +406,14 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SIMPSONS;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Simpsons;
 		};
-		2925175329F763D2005FFCEC /* Debug */ = {
+		2925175329F763D2005FFCEC /* TheWire */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -394,6 +423,7 @@
 				DEVELOPMENT_TEAM = 5T8F3HNMT6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SimpsonsCharacterViewer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "The Wire Character Viewer";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -403,7 +433,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.jb.SimpsonsCharacterViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.wireviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -412,9 +442,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = TheWire;
 		};
-		2925175429F763D2005FFCEC /* Release */ = {
+		2925175429F763D2005FFCEC /* Simpsons */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -424,6 +454,7 @@
 				DEVELOPMENT_TEAM = 5T8F3HNMT6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SimpsonsCharacterViewer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Simpsons Character Viewer";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -433,7 +464,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.jb.SimpsonsCharacterViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.simpsonsviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -442,7 +473,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = Simpsons;
 		};
 /* End XCBuildConfiguration section */
 
@@ -450,20 +481,20 @@
 		2925173929F763D0005FFCEC /* Build configuration list for PBXProject "SimpsonsCharacterViewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2925175029F763D2005FFCEC /* Debug */,
-				2925175129F763D2005FFCEC /* Release */,
+				2925175029F763D2005FFCEC /* TheWire */,
+				2925175129F763D2005FFCEC /* Simpsons */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Simpsons;
 		};
 		2925175229F763D2005FFCEC /* Build configuration list for PBXNativeTarget "SimpsonsCharacterViewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2925175329F763D2005FFCEC /* Debug */,
-				2925175429F763D2005FFCEC /* Release */,
+				2925175329F763D2005FFCEC /* TheWire */,
+				2925175429F763D2005FFCEC /* Simpsons */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Simpsons;
 		};
 /* End XCConfigurationList section */
 	};
