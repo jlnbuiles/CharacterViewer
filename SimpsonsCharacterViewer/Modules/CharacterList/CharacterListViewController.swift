@@ -51,6 +51,10 @@ final class CharacterListViewController: UITableViewController {
         presenter.publisher
             .receive(on: RunLoop.main)
             .sink { _ in
+                if self.presenter.characters == nil {
+                    self.presentDimissableAlert(title: UserMessage.General.unknownErrorTitle,
+                                                message: UserMessage.General.unknownErrorBody)
+                }
                 self.tableView.reloadData()
             }.store(in: &cancellables)
     }
@@ -61,21 +65,22 @@ final class CharacterListViewController: UITableViewController {
 extension CharacterListViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let router = DependencyContainer.shared.resolve(ApplicationRouter.self) else { return }
-        router.navigateToDetails(for: presenter.characters[indexPath.row])
+        guard let router = DependencyContainer.shared.resolve(ApplicationRouter.self),
+              let character = presenter.characters?[indexPath.row] else { return }
+        router.navigateToDetails(for: character)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int { 1 }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let character = presenter.characters[indexPath.row]
+        let character = presenter.characters?[indexPath.row]
         let cell = UITableViewCell()
-        cell.textLabel?.text = character.name
+        cell.textLabel?.text = character?.name
         return cell
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.characters.count
+        presenter.characters?.count ?? 0
     }
 }
 
@@ -84,10 +89,11 @@ extension CharacterListViewController {
 extension CharacterListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
 
-        guard let text = navigationItem.searchController?.searchBar.text else { return }
+        guard let text = navigationItem.searchController?.searchBar.text,
+              let characters = presenter.characters else { return }
 
         searchTableViewController.results.removeAll()
-        presenter.characters.forEach { character in
+        characters.forEach { character in
             if character.name.contains(text) {
                 self.searchTableViewController.results.append(character.name)
             }

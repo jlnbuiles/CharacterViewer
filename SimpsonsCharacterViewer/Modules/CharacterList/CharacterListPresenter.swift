@@ -9,15 +9,15 @@ import Foundation
 
 protocol CharacterListPresentable {
     func getCharacters()
-    var characters: [Character] { get }
-    var publisher: Published<[Character]>.Publisher { get }
+    var characters: [Character]? { get }
+    var publisher: Published<[Character]?>.Publisher { get }
 }
 
 final class CharacterListPresenter: CharacterListPresentable {
 
-    var publisher: Published<[Character]>.Publisher { $characters }
+    var publisher: Published<[Character]?>.Publisher { $characters }
     let interactor: CharacterListInteractor
-    @Published var characters = [Character]()
+    @Published var characters: [Character]?
 
     init(interactor: CharacterListInteractor = CharacterListInteractor()) {
         self.interactor = interactor
@@ -25,7 +25,8 @@ final class CharacterListPresenter: CharacterListPresentable {
 
     func getCharacters() {
         Task {
-            self.characters = await interactor.fetchCharacters()
+            guard let chars = await interactor.fetchCharacters() else { return }
+            self.characters = chars
         }
     }
 }

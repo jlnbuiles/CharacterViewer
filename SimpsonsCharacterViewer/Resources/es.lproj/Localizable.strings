@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  SimpsonsCharacterViewer
+
+  Created by Julian Builes on 4/26/23.
+  
+*/
+
+"Dismiss" = "Cerrar";
+"We were unable to process the request. Please try again later." = "No pudimos procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.";
+"Something went wrong" = "Algo salió mal";
