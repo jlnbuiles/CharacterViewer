@@ -4,7 +4,7 @@ A simple iOS project showcasing architecture patterns, coding style common featu
 ### Getting started 📖
 - Download xcode build & run
 
-##### Schemas & Environments 📐
+### Schemas & Environments 📐
 There are 2 environments you can run the project with: 
 - Simpsons - App will be a Simpsons-featured characters app
 - TheWire - App will be a Wire-featured characters app
