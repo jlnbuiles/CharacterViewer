@@ -9,6 +9,12 @@ import Foundation
 import os
 
 struct HTTPClient {
+    
+    let router: URLRoutable
+
+    init(router: URLRoutable = BaseURLRouter()) {
+        self.router = router
+    }
 
     private func GETRequest(with url: URL) -> URLRequest? {
         var request = URLRequest(url: url)
@@ -17,15 +23,15 @@ struct HTTPClient {
         return request
     }
 
-    func getList() async -> Data? {
-        guard let url = URLRouter.characterList,
+    func get(_ route: URLRoute) async throws -> Data? {
+        guard let url = router.route(route),
               let request = GETRequest(with: url) else { return nil }
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
             return data
         } catch {
             Logger().error("Unable to complete request with error \(error)")
-            return nil
+            throw error
         }
     }
 }

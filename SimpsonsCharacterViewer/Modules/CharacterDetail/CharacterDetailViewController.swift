@@ -44,19 +44,9 @@ final class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setupObserver()
-    }
-
-    // I could have used `didSet` or explicitly called `configure(with...)`
-    // method when character was set, but decided to implement it this way
-    // to maintain the same pattern on both VCs.
-    private func setupObserver() {
-        presenter.publisher
-            .receive(on: RunLoop.main)
-            .compactMap { $0 }
-            .sink { character in
-                self.configure(with: character)
-            }.store(in: &cancellables)
+        if let character = presenter.character {
+            configure(with: character)
+        }
     }
 
     // MARK: - UI configuration

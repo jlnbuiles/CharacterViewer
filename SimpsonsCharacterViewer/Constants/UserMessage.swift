@@ -19,3 +19,9 @@ enum UserMessage {
         static let unknownErrorTitle = NSLocalizedString("Something went wrong", comment: "")
     }
 }
+
+extension UserMessage {
+    enum CharacterList {
+        static let title = NSLocalizedString("Characters", comment: "")
+    }
+}

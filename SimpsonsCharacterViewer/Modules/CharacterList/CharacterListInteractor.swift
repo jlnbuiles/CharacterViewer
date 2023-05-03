@@ -9,20 +9,25 @@ import Foundation
 import os
 
 protocol CharacterListInteractorProtocol {
-    func fetchCharacters() async -> [Character]?
+    func fetchCharacters() async throws -> Result<[Character], Error>
 }
 
 struct CharacterListInteractor: CharacterListInteractorProtocol {
 
-    func fetchCharacters() async -> [Character]? {
-
-        guard let results = await HTTPClient().getList() else { return nil }
-
+    func fetchCharacters() async throws -> Result<[Character], Error> {
         do {
-            return try JSONDecoder().decode(DuckDuckGoResponse.self, from: results).items
-        } catch {
-            Logger().error("Unable to decode with error \(error)")
-            return nil
+            guard let results = try await HTTPClient().get(.characterList) else {
+                return .failure(NetworkError.unknown(context: URLRoute.characterList.path))
+            }
+
+            return Result {
+                do {
+                    return try JSONDecoder().decode(DuckDuckGoResponse.self, from: results).items
+                } catch {
+                    Logger().error("Unable to decode with error \(error)")
+                    throw error
+                }
+            }
         }
     }
 }

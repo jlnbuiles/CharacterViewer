@@ -30,6 +30,6 @@ struct Character: Decodable {
         // But it seems like this should always be present
         self.name = self.description.components(separatedBy: " - ").first ?? "No name"
         let imagePath = try container.decode(Icon.self, forKey: .imageURL).imagePath
-        self.imageURL = URL(string: imagePath, relativeTo: URLRouter.baseURL)
+        self.imageURL = URL(string: imagePath, relativeTo: BaseURLRouter.baseURL)
     }
 }

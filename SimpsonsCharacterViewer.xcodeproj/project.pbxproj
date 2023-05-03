@@ -10,6 +10,8 @@
 		290522DE29F9B03F00DBEA39 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290522DD29F9B03F00DBEA39 /* UIViewController+Extensions.swift */; };
 		290522E029F9B13B00DBEA39 /* UserMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290522DF29F9B13B00DBEA39 /* UserMessage.swift */; };
 		290522E429F9B3FB00DBEA39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 290522E629F9B3FB00DBEA39 /* Localizable.strings */; };
+		29124B362A01C35800E7F6E1 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29124B352A01C35800E7F6E1 /* AppError.swift */; };
+		29124B3C2A01C49B00E7F6E1 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29124B3B2A01C49B00E7F6E1 /* NetworkError.swift */; };
 		2925174229F763D0005FFCEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925174129F763D0005FFCEC /* AppDelegate.swift */; };
 		2925174429F763D0005FFCEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925174329F763D0005FFCEC /* SceneDelegate.swift */; };
 		2925174629F763D0005FFCEC /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925174529F763D0005FFCEC /* CharacterListViewController.swift */; };
@@ -39,6 +41,8 @@
 		290522E129F9B38200DBEA39 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		290522E529F9B3FB00DBEA39 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		290522E729F9B40000DBEA39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		29124B352A01C35800E7F6E1 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		29124B3B2A01C49B00E7F6E1 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2925173E29F763D0005FFCEC /* SimpsonsCharacterViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpsonsCharacterViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2925174129F763D0005FFCEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2925174329F763D0005FFCEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,8 +84,18 @@
 			children = (
 				290522E629F9B3FB00DBEA39 /* Localizable.strings */,
 				2925174A29F763D2005FFCEC /* Assets.xcassets */,
+				29124B3A2A01C47F00E7F6E1 /* Errors */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		29124B3A2A01C47F00E7F6E1 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				29124B352A01C35800E7F6E1 /* AppError.swift */,
+				29124B3B2A01C49B00E7F6E1 /* NetworkError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		2925173529F763D0005FFCEC = {
@@ -291,11 +305,13 @@
 				29851B4E29F8AE06003E93ED /* AppEnvironment.swift in Sources */,
 				29851B5529F8CA62003E93ED /* ImageName.swift in Sources */,
 				2925175E29F76918005FFCEC /* HTTPClient.swift in Sources */,
+				29124B362A01C35800E7F6E1 /* AppError.swift in Sources */,
 				2925174429F763D0005FFCEC /* SceneDelegate.swift in Sources */,
 				2925175C29F768C0005FFCEC /* CharacterListInteractor.swift in Sources */,
 				29851B5A29F8D6DF003E93ED /* RootSplitViewController.swift in Sources */,
 				2925176329F77EE4005FFCEC /* DuckDuckGoResponseObjects.swift in Sources */,
 				290522E029F9B13B00DBEA39 /* UserMessage.swift in Sources */,
+				29124B3C2A01C49B00E7F6E1 /* NetworkError.swift in Sources */,
 				290522DE29F9B03F00DBEA39 /* UIViewController+Extensions.swift in Sources */,
 				29C16B8029F89C2C00B5B705 /* UIImageView+Extensions.swift in Sources */,
 				2925176C29F79DF1005FFCEC /* SearchResultsTableViewController.swift in Sources */,

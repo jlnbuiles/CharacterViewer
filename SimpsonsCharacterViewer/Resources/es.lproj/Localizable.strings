@@ -6,6 +6,12 @@
   
 */
 
+// MARK: - General
+
 "Dismiss" = "Cerrar";
 "We were unable to process the request. Please try again later." = "No pudimos procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.";
 "Something went wrong" = "Algo salió mal";
+
+// MARK: - Character list
+
+"Characters" = "Characters";

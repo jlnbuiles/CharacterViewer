@@ -31,9 +31,9 @@ final class CharacterListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.getCharacters()
-        setupObserver()
+        title = UserMessage.CharacterList.title
         configureSearchBar()
+        fetchCharacters()
     }
 
     // MARK: - UI configuration
@@ -47,16 +47,16 @@ final class CharacterListViewController: UITableViewController {
 
     // MARK: - Convenience methods
 
-    private func setupObserver() {
-        presenter.publisher
-            .receive(on: RunLoop.main)
-            .sink { _ in
-                if self.presenter.characters == nil {
-                    self.presentDimissableAlert(title: UserMessage.General.unknownErrorTitle,
-                                                message: UserMessage.General.unknownErrorBody)
-                }
+    private func fetchCharacters() {
+        Task {
+            switch await presenter.getCharacters() {
+            case .success:
                 self.tableView.reloadData()
-            }.store(in: &cancellables)
+            case .failure:
+                self.presentDimissableAlert(title: UserMessage.General.unknownErrorTitle,
+                                            message: UserMessage.General.unknownErrorBody)
+            }
+        }
     }
 }
 

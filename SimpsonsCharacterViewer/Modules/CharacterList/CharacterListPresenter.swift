@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CharacterListPresentable {
-    func getCharacters()
+    func getCharacters() async -> Result<[Character], Error>
     var characters: [Character]? { get }
     var publisher: Published<[Character]?>.Publisher { get }
 }
@@ -19,14 +19,21 @@ final class CharacterListPresenter: CharacterListPresentable {
     let interactor: CharacterListInteractor
     @Published var characters: [Character]?
 
-    init(interactor: CharacterListInteractor = CharacterListInteractor()) {
+    required init(interactor: CharacterListInteractor = CharacterListInteractor()) {
         self.interactor = interactor
     }
 
-    func getCharacters() {
-        Task {
-            guard let chars = await interactor.fetchCharacters() else { return }
-            self.characters = chars
+    func getCharacters() async -> Result<[Character], Error> {
+        do {
+            switch try await interactor.fetchCharacters() {
+            case .failure(let error):
+                return .failure(error)
+            case .success(let characters):
+                self.characters = characters
+                return .success(characters)
+            }
+        } catch {
+            return .failure(error)
         }
     }
 }

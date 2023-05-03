@@ -7,18 +7,35 @@
 
 import Foundation
 
-struct URLRouter {
+enum URLRoute {
 
-    private static let environment = AppEnvironment()
+    case characterList
 
-    static var characterList: URL? {
-        switch environment {
-        case .wire:
-            return URL(string: "?q=the+wire+characters&format=json", relativeTo: URLRouter.baseURL)
-        case .simpsons:
-            return URL(string: "?q=simpsons+characters&format=json", relativeTo: URLRouter.baseURL)
+    var path: String {
+
+        let environment = AppEnvironment()
+
+        switch self {
+        case .characterList:
+            switch environment {
+            case .wire:
+                return "?q=the+wire+characters&format=json"
+            case .simpsons:
+                return "?q=simpsons+characters&format=json"
+            }
         }
     }
+}
+
+protocol URLRoutable {
+    func route(_ route: URLRoute) -> URL?
+}
+
+struct BaseURLRouter: URLRoutable {
 
     static let baseURL = URL(string: "https://duckduckgo.com/")
+
+    func route(_ route: URLRoute) -> URL? {
+        URL(string: route.path, relativeTo: Self.baseURL)
+    }
 }
