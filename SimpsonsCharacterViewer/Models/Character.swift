@@ -28,7 +28,7 @@ struct Character: Decodable {
         self.description = try container.decode(String.self, forKey: .description)
         // Having a temporary fallback text of `No name` for now.
         // But it seems like this should always be present
-        self.name = self.description.components(separatedBy: " - ").first ?? "No name"
+        self.name = description.components(separatedBy: " - ").first ?? UserMessage.Character.noName
         let imagePath = try container.decode(Icon.self, forKey: .imageURL).imagePath
         self.imageURL = URL(string: imagePath, relativeTo: BaseURLRouter.baseURL)
     }

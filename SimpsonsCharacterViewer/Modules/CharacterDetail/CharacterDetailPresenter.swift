@@ -9,6 +9,7 @@ import Foundation
 
 protocol CharacterDetailPresentable {
     var character: Character? { get set }
+    var publisher: Published<Character?>.Publisher { get }
 }
 
 /**
@@ -18,7 +19,8 @@ protocol CharacterDetailPresentable {
  */
 final class CharacterDetailPresenter: CharacterDetailPresentable {
 
-    var character: Character?
+    var publisher: Published<Character?>.Publisher { $character }
+    @Published var character: Character?
 
     init(character: Character? = nil) {
         self.character = character

@@ -6,15 +6,14 @@
 //
 
 import UIKit
-import Combine
 
 final class CharacterListViewController: UITableViewController {
 
     // MARK: - Properties
 
     private let presenter: CharacterListPresentable
-    private var cancellables: Set<AnyCancellable> = []
     private var searchTableViewController = SearchResultsTableViewController()
+    private let emptyView = EmptyView(title: UserMessage.CharacterList.noCharacters)
 
     // MARK: - Initializers
 
@@ -33,16 +32,30 @@ final class CharacterListViewController: UITableViewController {
         super.viewDidLoad()
         title = UserMessage.CharacterList.title
         configureSearchBar()
+        configureEmptyView()
         fetchCharacters()
     }
 
     // MARK: - UI configuration
 
     private func configureSearchBar() {
-        navigationItem.searchController = UISearchController(searchResultsController: searchTableViewController)
+        navigationItem.searchController = .init(searchResultsController: searchTableViewController)
         navigationItem.searchController?.searchResultsUpdater = self
         definesPresentationContext = true
         searchTableViewController.tableView.delegate = self
+    }
+
+    private func configureEmptyView() {
+        guard let rootView = navigationController?.view else {
+            return
+        }
+
+        rootView.addSubview(emptyView)
+        NSLayoutConstraint.extend(view: emptyView, toSuperView: rootView)
+    }
+
+    private func displayEmptyView(_ display: Bool) {
+        emptyView.isHidden = !display
     }
 
     // MARK: - Convenience methods
@@ -51,10 +64,12 @@ final class CharacterListViewController: UITableViewController {
         Task {
             switch await presenter.getCharacters() {
             case .success:
-                self.tableView.reloadData()
+                tableView.reloadData()
+                displayEmptyView(false)
             case .failure:
                 self.presentDimissableAlert(title: UserMessage.General.unknownErrorTitle,
                                             message: UserMessage.General.unknownErrorBody)
+                displayEmptyView(true)
             }
         }
     }

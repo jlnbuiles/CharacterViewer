@@ -14,6 +14,7 @@ final class CharacterDetailViewController: UIViewController {
 
     var presenter: CharacterDetailPresentable
     private var cancellables: Set<AnyCancellable> = []
+    private let emptyView = EmptyView(title: UserMessage.CharacterDetail.noCharacterSelected)
 
     let descriptionLabel: UILabel = {
         let label = UILabel()
@@ -44,8 +45,24 @@ final class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupObserver()
+        configureEmptyView()
+    }
+
+    // MARK: - Observer methods
+
+    private func setupObserver() {
+        presenter.publisher
+            .receive(on: RunLoop.main)
+            .compactMap { $0 }
+            .sink { character in
+                self.configure(with: character)
+            }.store(in: &cancellables)
         if let character = presenter.character {
             configure(with: character)
+            displayEmptyView(false)
+        } else {
+            displayEmptyView(true)
         }
     }
 
@@ -82,5 +99,14 @@ final class CharacterDetailViewController: UIViewController {
 
         imageView.fetchImage(from: character.imageURL,
                              placeholder: UIImage(imgName: .mysteryMan))
+    }
+
+    private func configureEmptyView() {
+        view.addSubview(emptyView)
+        NSLayoutConstraint.extend(view: emptyView, toSuperView: view)
+    }
+
+    private func displayEmptyView(_ display: Bool) {
+        emptyView.isHidden = !display
     }
 }

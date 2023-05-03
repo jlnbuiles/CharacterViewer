@@ -15,3 +15,12 @@
 // MARK: - Character list
 
 "Characters" = "Characters";
+"No characters to display" = "No characters to display";
+
+// MARK: - Character detail
+
+"No character was selected" = "No character was selected";
+
+// MARK: - Character
+
+"No name" = "No name";

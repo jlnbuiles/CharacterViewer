@@ -14,4 +14,13 @@
 
 // MARK: - Character list
 
-"Characters" = "Characters";
+"Characters" = "Personajes";
+"No characters to display" = "No characters to display";
+
+// MARK: - Character detail
+
+"No character was selected" = "Un personaje no ha sido seleccionado";
+
+// MARK: - Character
+
+"No name" = "Sin nombre";
