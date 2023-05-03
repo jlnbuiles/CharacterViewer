@@ -80,9 +80,16 @@ final class CharacterListViewController: UITableViewController {
 extension CharacterListViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let router = DependencyContainer.shared.resolve(ApplicationRouter.self),
-              let character = presenter.characters?[indexPath.row] else { return }
-        router.navigateToDetails(for: character)
+        guard let router = DependencyContainer.shared.resolve(ApplicationRouter.self) else { return }
+
+        if tableView === searchTableViewController.tableView {
+            let characterName = searchTableViewController.results[indexPath.row]
+            if let foundCharacter = presenter.characters?.first(where: { $0.name == characterName }) {
+                router.navigateToDetails(for: foundCharacter)
+            }
+        } else if let character = presenter.characters?[indexPath.row] {
+            router.navigateToDetails(for: character)
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int { 1 }
