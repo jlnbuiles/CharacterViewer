@@ -60,6 +60,7 @@ final class CharacterListViewController: UITableViewController {
 
     // MARK: - Convenience methods
 
+    @MainActor
     private func fetchCharacters() {
         Task {
             switch await presenter.getCharacters() {
